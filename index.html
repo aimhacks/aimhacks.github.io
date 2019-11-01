@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(600, 600);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+/* Welcome to Aimhacks, press one of the buttons to either start playing the game or get to the instructions, and Thanks for playing (More info below) */
+
+// Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Amhed (@jrcmilkz191)
+
+// Huge thanks to Timothy Mathew (@Timmy625) 
+
+/* Please do not change the code if you are only going to play as it will mess the game up and could lead to changes that would let you cheat. But if you are going to modify the game to make a different version of it feel free to do it */
+
+/* If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.*/
+
+
+// Project Started August 22nd 2019 and ended on October 28th 2019
+
+//Scene Variable
+var currentScene = 0;
+
+// Timer Variables
+var timer1 = 15;
+var timer2 = 13;
+var timer3 = 13;
+
+//3D Text Variable
+var textX = 289;
+
+// Variables to make the sqaures dissapear (Easter Egg)
+var x11 = 156;
+var x12 = 512;
+var x21 = 322;
+var x22 = 170;
+var x23 = 278;
+var x24 = 65;
+var x25 = 247;
+var x26 = 327;
+var x27 = 519;
+var x28 = 101;
+var x29 = 410;
+var x41 = 371;
+var x42 = 231;
+var x43 = 488;
+var x44 = 401;
+var x45 = 285;
+var x46 = 111;
+var x47 = 489;
+var x48 = 490;
+var x49 = 400;
+var x410 = 306;
+var x411 = 147;
+var x51 = 139;
+var x52 = 350;
+var x53 = 222;
+var x54 = 430;
+var x55 = 89;
+var x56 = 195;
+var x57 = 271;
+var x58 = 533;
+var x59 = 510;
+var x510 = 365;
+var x511 = 52;
+var x512 = 34;
+var x513 = 218;
+var x61 = 82;
+var x62 = 181;
+var x63 = 287;
+var x64 = 468;
+var x65 = 93;
+var x66 = 252;
+var x67 = 353;
+var x68 = 484;
+var x69 = 36;
+var x610 = 212;
+var x611 = 428;
+var x612 = 444;
+var x613 = 61;
+var x613 = 287;
+var x614 = 289;
+    
+//Scene 1 (Title Screen)
+var drawScene1 = function() {
+    //Setting the coresspeonding scene number with draw scene           function
+    currentScene = 1;
+    //Setting the color for the buttons and background
+    background(0, 0, 0);
+    fill(255, 0, 0);
+    textSize(40);
+    stroke(255, 255, 255);
+    fill(255, 0, 0);
+    //Buttons and text for buttons
+    rect(x11, 422, 30, 30);
+    rect(x12, 289, 30, 30);
+    for(var i = 0; i < 8; i++){
+        pushMatrix();
+        scale(1.1, 1);
+        if(i === 7){
+           fill(255, 0, 0);    
+        } else {
+                fill(87, 10, 10);
+        }
+        textSize(90);
+        textAlign(CENTER);
+        text("Aimhacks", textX -21, 152 - i);
+        popMatrix();
+}
+    textSize(20);
+    text("Click to Start", 286, 298);
+    noFill();
+    text("Click here for instructions", 294, 356);
+    noFill();
+    text("Leaderboard", 286, 407);
+    
+    textSize(15);
+    fill(138, 117, 255);
+    text ("Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Ahmed (@jrcmilkz191)", 300, 542);
+    text("Huge thanks to Timothy Mathew - timmy625\n for all of the help & code,", 300, 560);
+};
+
+//Scene 2 (Level 1)
+var drawScene2 = function() {
+    //Setting the curent scene with the corresponding function
+    currentScene = 2;
+    //Setting color for background
+    background(0, 0, 0);
+    //Sqaures you have to hit and the borders and colors for the        sqaures
+    stroke(245, 245, 245);
+    fill(255, 0, 0);
+    rect(x25, 323, 30, 30);
+    rect(x23, 247, 30, 30);
+    rect(x21, 74, 30, 30);
+    rect(x29, 452, 30, 30);
+    rect(x28, 488, 30, 30);
+    rect(x27, 303, 30, 30);
+    rect(x26, 340, 30, 30);
+    rect(x24, 315, 30, 30);
+    rect(x22, 110, 30, 30);
+    //Name of the level and border under the name
+    textSize(59);
+    text("Level 1", 205, 53);
+    stroke(222, 22, 22);
+    strokeWeight(4);
+    line(1, 67, 599, 69);
+    //Timer and automation for the next level
+    stroke(255, 0, 0);
+    text("00:", 443,54);
+    text(floor(timer1), 513, 54);
+    if (x29 === 410 || x21 === 322 || x22 === 170 || x23 ===              278 ||  x24 === 65 ||  x25 === 247 ||  x26 === 327 ||  x27         === 519 ||  x28 === 101) {
+        timer1-=0.020;
+    } else {
+             if (currentScene === 2 ) {
+                 currentScene = 4;
+            }
+    }
+    if (timer1 < 0) { 
+        drawScene1();
+        timer1 = 15;
+         x21 = 322;
+         x22 = 170;
+         x23 = 278;
+         x24 = 65;
+         x25 = 247;
+         x26 = 327;
+         x27 = 519;
+         x28 = 101;
+         x29 = 410;
+    }
+};
+
+//Scene 3 (Instructions)
+var drawScene3 = function() {
+    //Setting the corresponding scene with function
+    currentScene = 3;
+    //Setting text size and background color
+    background(0, 0, 0);
+
+    fill(255, 0, 0);
+    //Actual text for instructions
+    textSize(70);
+    for(var i = 0; i < 8; i++){
+        pushMatrix();
+        scale(1.1, 1);
+        if(i === 7){
+           fill(255, 0, 0);    
+        } else {
+                fill(87, 10, 10);
+        }
+        textSize(90);
+        textAlign(CENTER);
+        text("Instructions", textX -18, 99 - i);
+        popMatrix();
+}
+    fill(255, 0, 0);
+    textSize(32);
+    text("Once you click start on the main page you will see a bunch of sqaures and a timer in the top right of the screen. You have to click on all of the sqaures before the timer ends or you will have to restart. If you want to get on the leaderboard click on the button and read how to do get on it in that section. ", 4, 119, 595, 589);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(655, 110, -117, 109);
+    // Back Button
+    stroke(255, 255, 255);
+    rect(497,556,82,33);
+    fill(0, 0, 0);
+    text("Back", 538,584);
+
+};
+
+// Scene 4 (Level 2)
+var drawScene4 = function() {
+    //Background for this Scene
+    background(0, 0, 0);
+
+    //Sqaures you have to hit and the colors for them
+    stroke(245, 245, 245);
+    fill(255, 0, 0);
+    rect(x42,132,30,30);
+    rect(x45,225,30,30);
+    rect(x41,80,30,30);
+    rect(x410,338,30,30);
+    rect(x411,379,30,30);
+    rect(x44,168,30,30);
+    rect(x49,346,30,30);
+    rect(x46,273,30,30);
+    rect(x48,382,30,30);
+    rect(x47,272,30,30);
+    rect(x43,140,30,30);
+    
+    //Level 2 Name and the line underneath it
+    textSize(60);
+    text("Level 2",191,53);
+    stroke(222, 22, 22);
+    strokeWeight(4);
+    line(4, 67, 600, 69);
+    // Timer an automation for next level
+    text("00:", 442,51);
+    text(floor(timer2), 513, 51);
+    if (x48 === 490 || x41 === 371|| x42 === 231 ||x43 === 48||x44         === 401 ||x45 === 285 ||x46 === 111 ||x47 === 489 || x49          === 400||x410 === 306 ||x411 === 147 ) {
+        timer2-=0.020;
+    } else {
+        if (currentScene === 4 ) {
+            currentScene = 5;
+    }
+}
+    if (timer2 < 0) { 
+        drawScene1();
+        timer2 = 13;
+         x41 = 371;
+         x42 = 231;
+         x43 = 488;
+         x44 = 401;
+         x45 = 285;
+         x46 = 111;
+         x47 = 489;
+         x48 = 490;
+         x49 = 400;
+         x410 = 306;
+         x411 = 147;
+    }
+};
+// Scene 5 (Level 3)
+var drawScene5 = function() {
+    // Background for this scene
+    background(0, 0, 0);
+   
+    // Sqaures you have to hit and the colors for them
+    stroke(245, 245, 245);
+    fill(255, 0, 0);
+    
+    // FOR DEV ONLY (Not acurrate variable of position in game           (Under this))
+    rect(x51,118,30,30);
+    rect(x52,149,30,30);
+    rect(x53,146,30,30);
+    rect(x54,259,30,30);
+    rect(x55,229,30,30);
+    rect(x56,349,30,30);
+    rect(x57,232,30,30);
+    rect(x58,360,30,30);
+    rect(x59,146,30,30);
+    rect(x510,343,30,30);
+    rect(x511,362,30,30);
+    rect(x512,102,30,30);
+    rect(x513,467,30,30);
+    
+    // Level 3 Name and the line under it
+    textSize(60);
+    text("Level 3",191,53);
+    textFont(77,60);
+    stroke(242, 29, 29);
+    strokeWeight(4);
+    line(4, 67, 600, 69);
+    text("00:", 465,52);
+    text(floor(timer3), 523, 52);
+    if (x513 === 218 || x51 === 139|| x52 === 350 ||x53 ===222||x54 === 430 ||x55 === 89 ||x56 === 195 ||x57 === 271 || x58           === 533||x59 === 510 ||x510 === 365 ||x511 === 52 ||x512          === 34 ) {
+        timer3-=0.020;
+    } else { 
+        if (currentScene === 5 ) {
+            //currentScene = 6;
+            text("You WON!!!", 293,310);
+        }
+    }
+    if (timer3 < 0) { 
+        drawScene1();
+        timer3 = 10;
+         x51 = 139;
+         x52 = 350;
+         x53 = 222;
+         x54 = 430;
+         x55 = 89;
+         x56 = 195;
+         x57 = 271;
+         x58 = 533;
+         x59 = 510;
+         x510 = 365;
+         x511 = 52;
+         x512 = 34;
+         x513 = 218;
+    }
+};
+
+// Scene 6 (Level 4)
+var drawScene6 = function() {
+    currentScene = 7;
+    //Background for this level
+     background(0, 0, 0);
+    
+    //Sqaures you have to hit and the colors for them
+    stroke(245, 245, 245);
+    fill(255, 0, 0);
+    rect(x61,91,30,30);
+    rect(x62,135,30,30);
+    rect(x63,137,30,30);
+    rect(x64,149,30,30);
+    rect(x65,217,30,30);
+    rect(x66,232,30,30);    
+    rect(x67,240,30,30);
+    rect(x68,306,30,30);
+    rect(x69,318,30,30);
+    rect(x610,354,30,30);
+    rect(x611,433,30,30);
+    rect(x612,231,30,30);
+    rect(x613,451,30,30);
+    rect(x614,522,30,30);
+    
+    //The name for this level and the line under it
+    textSize(60);
+    text("Level 4",191,53);
+    textFont(77,60);
+    stroke(242 , 29, 29);
+    strokeWeight(4);
+    line(4, 67, 600, 69);
+};
+
+// Scene 7 (Leaderboard)
+var drawScene7 = function() {
+    //Leaderbaord Colors
+    fill(255, 0, 0);
+    background(0, 0, 0);
+    textSize(60);
+    
+    //3D Text for title
+    for(var i = 0; i < 8; i++){
+        pushMatrix();
+        scale(1.1, 1);
+        if(i === 7){
+           fill(255, 0, 0);    
+            } else {
+                fill(87, 10, 10);
+            }
+            textSize(90);
+            textAlign(CENTER);
+            text("Leaderboard", textX -19, 95 - i);
+            popMatrix();
+        }
+
+    //Leaderboard Numbers
+    text("1.",68,162);
+    text("2.",70,230);
+    text("3.",72,298);
+    text("4.",73,367);
+    text("5.",72,435);
+    text("6.",73,503);
+    textSize(17);
+    text("If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.",2,510,602,506);
+
+    // Names on the Leaderboard
+    textSize(29);
+    text("Timothy - @Timmy625,(18.21) sec",320,216);
+    text("Musa, Arjun (Creators),(18.05) sec",323,147);
+    text("Ajitesh,(22.23) sec",222,283);
+    text("Nish,(23.68) sec",206,351);
+    text("Daymond,(24.09) sec",237,417);
+    text("Rishi ,(26.30) sec",211,490);
+    
+    // Back Button
+    stroke(255, 255, 255);
+    rect(503,467,82,33);
+    fill(0, 0, 0);
+    text("Back", 542,495);
+};
+
+//Starting Scene Varibale Set
+currentScene = 1;
+
+// MouseClicked Function to Cycle Throught The Screens and functions to make the sqaures dissapear
+mouseClicked = function() {
+     if (currentScene === 1 && mouseX < 371 && mouseX > 214 &&             mouseY < 310 && mouseY > 275){
+         drawScene2();
+    } 
+    if (currentScene === 1 && mouseX > 228 && mouseX < 363 &&             mouseY > 383 && mouseY < 418) {
+        currentScene = 7;
+    }
+    if (currentScene === 1 && mouseX < 409 && mouseX > 178 &&          mouseY < 363 && mouseY > 333) {
+        drawScene3();
+    }
+    if (currentScene === 3 && mouseX < 579 && mouseX > 497 && mouseY < 589 && mouseY > 556) {
+        drawScene1();
+    }
+    if (currentScene === 7 && mouseX < 585 && mouseX > 503 && mouseY < 500 && mouseY > 467) {
+        drawScene1();
+    }
+    if (mouseX > 150 && mouseX < 186 && mouseY >= 420 && mouseY < 452 && currentScene === 1) {
+        x11 = -2000;
+    }
+    if (mouseX > 512 && mouseX < 542 && mouseY > 289 && mouseY < 319 && currentScene === 1) {
+        x12 = -2000;
+    }
+    if (mouseX > 322 && mouseX < 352 && mouseY > 74 && mouseY < 104 && currentScene === 2) {
+        x21 = -2000;
+    }
+    if (mouseX > 170 && mouseX < 200 && mouseY > 110 && mouseY < 140 && currentScene === 2) {
+        x22 = -2000;
+    }
+    if (mouseX > 278 && mouseX < 308 && mouseY > 247 && mouseY < 277 && currentScene === 2) {
+        x23 = -2000;
+    }
+    if (mouseX > 65 && mouseX < 95 && mouseY > 315 && mouseY < 345 && currentScene === 2) {
+        x24 = -2000;
+    }
+    if (mouseX > 247 && mouseX < 277 && mouseY > 323 && mouseY < 353 && currentScene === 2) {
+        x25 = -2000;
+    }
+    if (mouseX > 327 && mouseX < 357 && mouseY > 340 && mouseY < 370 && currentScene === 2) {
+        x26 = -2000;
+    }
+    if (mouseX > 519 && mouseX < 549 && mouseY > 303 && mouseY < 333 && currentScene === 2) {
+        x27 = -2000;
+    }
+    if (mouseX > 101 && mouseX < 131 && mouseY > 488 && mouseY < 508 && currentScene === 2) {
+        x28 = -2000;
+    }
+    if (mouseX > 410 && mouseX < 430 && mouseY > 452 && mouseY < 482 && currentScene === 2) {
+        x29 = -2000;
+    }
+    if (mouseX > 371 && mouseX < 401 && mouseY > 80 && mouseY < 110 && currentScene === 4) {
+        x41 = -2000;
+    }
+    if (mouseX > 231 && mouseX < 261 && mouseY > 132 && mouseY < 162 && currentScene === 4) {
+        x42 = -2000;
+    }
+    if (mouseX > 488 && mouseX < 518 && mouseY > 140 && mouseY < 170 && currentScene === 4) {
+        x43 = -2000;
+    }
+    if (mouseX > 401 && mouseX < 431 && mouseY > 168 && mouseY < 198 && currentScene === 4) {
+        x44 = -2000;
+    }
+    if (mouseX > 285 && mouseX < 315 && mouseY > 225 && mouseY < 255 && currentScene === 4) {
+        x45 = -2000;
+    }
+    if (mouseX > 111 && mouseX < 141 && mouseY > 273 && mouseY < 303 && currentScene === 4) {
+        x46 = -2000;
+    }
+    if (mouseX > 489 && mouseX < 519 && mouseY > 272 && mouseY < 302 && currentScene === 4) {
+        x47 = -2000;
+    }
+    if (mouseX > 490 && mouseX < 520 && mouseY > 382 && mouseY < 412 && currentScene === 4) {
+        x48 = -2000;
+    }
+    if (mouseX > 400 && mouseX < 430 && mouseY > 346 && mouseY < 376 && currentScene === 4) {
+        x49 = -2000;
+    }
+    if (mouseX > 306 && mouseX < 336 && mouseY > 338 && mouseY < 368 && currentScene === 4) {
+        x410 = -2000;
+    }
+    if (mouseX > 147 && mouseX < 177 && mouseY > 379 && mouseY < 409 && currentScene === 4) {
+        x411 = -2000;
+    }
+    if (mouseX > 139 && mouseX < 169 && mouseY > 118 && mouseY < 148 && currentScene === 5) {
+        x51 = -2000;
+    }
+    if (mouseX > 34 && mouseX < 64 && mouseY > 102 && mouseY < 132 && currentScene === 5) {
+        x512 = -2000;
+    }
+    if (mouseX > 222 && mouseX < 252 && mouseY > 146 && mouseY < 176 && currentScene === 5) {
+        x53 = -2000;
+    }
+    if (mouseX > 350 && mouseX < 380 && mouseY > 149 && mouseY < 179 && currentScene === 5) {
+        x52 = -2000;
+    }
+    if (mouseX > 510 && mouseX < 540 && mouseY > 146 && mouseY < 176 && currentScene === 5) {
+        x59 = -2000;
+    }
+    if (mouseX > 89 && mouseX < 119 && mouseY > 229 && mouseY < 259 && currentScene === 5) {
+        x55 = -2000;
+    }
+    if (mouseX > 271 && mouseX < 301 && mouseY > 232 && mouseY < 262 && currentScene === 5) {
+        x57 = -2000;
+    }
+    if (mouseX > 430 && mouseX < 460 && mouseY > 259 && mouseY < 289 && currentScene === 5) {
+        x54 = -2000;
+    }
+    if (mouseX > 52 && mouseX < 82 && mouseY > 362 && mouseX < 392 && currentScene === 5) {
+        x511 = -2000;
+    }
+    if (mouseX > 195 && mouseX < 225 && mouseY > 349 && mouseY < 379 && currentScene === 5) {
+        x56 = -2000;
+    }
+    if (mouseX > 365 && mouseX < 395 && mouseY > 343 && mouseY < 373 && currentScene === 5) {
+        x510 = -2000;
+    }
+    if (mouseX > 533 && mouseX < 563 && mouseY > 360 && mouseY < 390 && currentScene === 5) {
+        x58 = -2000;
+    }
+    if (mouseX > 218 && mouseX < 248 && mouseY > 467 && mouseY < 497 && currentScene === 5) {
+        x513 = -2000;
+    }
+    
+};
+
+// Function to display the scenes
+draw = function() {
+        if (currentScene === 1) {
+        drawScene1(); 
+    } else if (currentScene === 2) {
+        drawScene2();
+    } else if (currentScene === 3) {
+        drawScene3();
+    } else if (currentScene === 4) {
+        drawScene4();
+    } else if (currentScene === 5) {
+        drawScene5();
+    } else if (currentScene === 6) {
+        drawScene6();
+    } else if (currentScene === 7) {
+        drawScene7();
+    }// Mouse Crosshair
+      stroke(255, 255, 255);
+      strokeWeight(2);
+      line(mouseX, mouseY-12, mouseX, mouseY+12);
+      line(mouseX +12, mouseY, mouseX -12, mouseY); 
+};
+
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>
