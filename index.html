@@ -417,16 +417,17 @@ var drawScene7 = function() {
     textSize(29);
     text("Timothy - @Timmy625,(18.21) sec",320,216);
     text("Musa, Arjun (Creators),(18.05) sec",323,147);
-    text("Ajitesh,(22.23) sec",222,283);
-    text("Nish,(23.68) sec",206,351);
-    text("Daymond,(24.09) sec",237,417);
-    text("Rishi ,(26.30) sec",211,490);
+    text("Ajitesh,(22.23) sec",226,347);
+    text("Vivvan,(19.43) sec",226,282);
+    text("Nish,(23.68) sec",209,417);
+    text("Daymond and Modris,(24.09) sec",315,490);
+
     
     // Back Button
     stroke(255, 255, 255);
-    rect(503,467,82,33);
+    rect(503,432,82,33);
     fill(0, 0, 0);
-    text("Back", 542,495);
+    text("Back", 542,458);
 };
 
 //Starting Scene Varibale Set
@@ -446,7 +447,7 @@ mouseClicked = function() {
     if (currentScene === 3 && mouseX < 579 && mouseX > 497 && mouseY < 589 && mouseY > 556) {
         drawScene1();
     }
-    if (currentScene === 7 && mouseX < 585 && mouseX > 503 && mouseY < 500 && mouseY > 467) {
+    if (currentScene === 7 && mouseX < 585 && mouseX > 503 && mouseY < 465 && mouseY > 432) {
         drawScene1();
     }
     if (mouseX > 150 && mouseX < 186 && mouseY >= 420 && mouseY < 452 && currentScene === 1) {
@@ -579,10 +580,6 @@ draw = function() {
       line(mouseX, mouseY-12, mouseX, mouseY+12);
       line(mouseX +12, mouseY, mouseX -12, mouseY); 
 };
-
-        }
-        if (typeof draw !== 'undefined') processing.draw = draw;
-    });
   </script>
 </body>
 </html>
