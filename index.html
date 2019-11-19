@@ -5,12 +5,14 @@
   <link rel="icon" href="https://1.bp.blogspot.com/-NGxP8i-BAVg/Xb4H8QbGKlI/AAAAAAAAFLk/XStv9Kjdemo27yV6wQ5oEoiHyVVaBqdXACLcBGAsYHQ/s1600/Weaponary_-_Flat_-_012_-_Crosshair-128.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
   <style>
-    { cursor: crosshair; }
+    .aimhacks { 
+      cursor: crosshair; 
+    }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
-  <script>
+  <script class="aimhacks">
     var canvas = document.getElementById("canvas");
     var processing = new Processing(canvas, function(processing) {
         processing.size(600, 600);
