@@ -580,10 +580,9 @@ draw = function() {
     } else if (currentScene === 7) {
         drawScene7();
     }// Mouse Crosshair
-      stroke(255, 255, 255);
-      strokeWeight(2);
-      line(mouseX, mouseY-12, mouseX, mouseY+12);
-      line(mouseX +12, mouseY, mouseX -12, mouseY); 
+      if (mouseX > 0 && mouseX < 600 && mouseY > 0 && mouseY < 600) {
+        cursor(CROSS);
+    }
 };
 
         }
