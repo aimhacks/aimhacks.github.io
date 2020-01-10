@@ -75,6 +75,7 @@ var timer8 = 1;
 var timer9 = 1;
 var flickshottotalTimer1 = 0;
 
+
 //3D Text Variable
 var textX = 289;
 
@@ -186,7 +187,7 @@ var drawScene1 = function() {
     noFill();
     text("Click here for Flick Shot Instructions", 297, 501);
     noFill();
-    text("Leaderboard for FlickShots", 298, 541);
+    text("Leaderboard for Flick Shots", 298, 541);
     
     
     textSize(15);
@@ -220,8 +221,12 @@ var drawScene2 = function() {
     line(1, 67, 599, 69);
     //Timer and automation for the next level
     stroke(255, 0, 0);
-    text("00:", 443,54);
-    text(floor(timer1), 513, 54);
+    //text("00:", 443,54);
+    if (timer1 > 9.99) {
+        text((timer1).toFixed(2), 513, 54);
+    } else {
+        text("0" + (timer1).toFixed(2), 513, 54);
+    }
     if (x29 === 410 || x21 === 322 || x22 === 170 || x23 ===              278 ||  x24 === 65 ||  x25 === 247 ||  x26 === 327 ||  x27         === 519 ||  x28 === 101) {
         timer1-=0.020;
     } else {
@@ -308,8 +313,12 @@ var drawScene4 = function() {
     strokeWeight(4);
     line(4, 67, 600, 69);
     // Timer an automation for next level
-    text("00:", 442,51);
-    text(floor(timer2), 513, 51);
+    if (timer2 > 9.99) {
+        text((timer2).toFixed(2), 513, 51);
+    } else {
+        text( "0" + (timer2).toFixed(2), 513, 51);
+    }
+    
     if (x48 === 490 || x41 === 371|| x42 === 231 ||x43 === 48||x44         === 401 ||x45 === 285 ||x46 === 111 ||x47 === 489 || x49          === 400||x410 === 306 ||x411 === 147 ) {
         timer2-=0.020;
     } else {
@@ -364,8 +373,11 @@ var drawScene5 = function() {
     stroke(242, 29, 29);
     strokeWeight(4);
     line(4, 67, 600, 69);
-    text("00:", 465,52);
-    text(floor(timer3), 523, 52);
+    if (timer3 > 9.99) {
+        text((timer3).toFixed(2), 523, 52);
+    } else {
+        text("0" + (timer3).toFixed(2), 523, 52);
+    }
     if (x513 === 218 || x51 === 139|| x52 === 350 ||x53 ===222||x54 === 430 ||x55 === 89 ||x56 === 195 ||x57 === 271 || x58           === 533||x59 === 510 ||x510 === 365 ||x511 === 52 ||x512          === 34 ) {
         timer3-=0.020;
     } else { 
@@ -492,7 +504,7 @@ var drawScene8 = function() {
     fill(255, 0, 0);
     textSize(23);
     text("Timer:", 538, 24);
-    text(floor(timer4), timerX, 53);
+    text((timer4).toFixed(2), timerX, 53);
     if (flickshotC === 1) {
         timer4-=0.020;
     } 
@@ -505,7 +517,7 @@ var drawScene8 = function() {
         timerX = -2000;
     }
     if (flickshotC === 3) {
-        text(floor(timer5), 538, 53);
+        text((timer5).toFixed(2), 538, 53);
     }
     if (flickshotC === 3) {
         timer5 -=0.020;
@@ -519,7 +531,7 @@ var drawScene8 = function() {
         timer1x = -2000;
     }
     if (flickshotC === 5) {
-        text(floor(timer6), 538, 53);
+        text((timer6).toFixed(2), 538, 53);
     }
     if (flickshotC === 5) {
         timer6 -=0.020;
@@ -533,7 +545,7 @@ var drawScene8 = function() {
         timer2x = -2000;
     }
     if (flickshotC === 7) {
-        text(floor(timer7), 538, 53);
+        text((timer7).toFixed(2), 538, 53);
     }
     if (flickshotC === 7) {
         timer7 -=0.020;
@@ -547,7 +559,7 @@ var drawScene8 = function() {
         timer3x = -2000;
     }
     if (flickshotC === 9) {
-        text(floor(timer8), 538, 53);
+        text((timer8).toFixed(2), 538, 53);
     }
     if (flickshotC === 9) {
         timer8 -=0.020;
@@ -561,7 +573,7 @@ var drawScene8 = function() {
         timer4x = -2000;
     }
     if (flickshotC === 11) {
-        text(floor(timer9), 538, 53);
+        text((timer9).toFixed(2), 538, 53);
     }
     if (flickshotC === 11) {
         timer9 -=0.020;
@@ -644,7 +656,7 @@ var drawScene9 = function() {
     }
         fill(255, 0, 0);
         textSize(32);
-        text("Put your cross hair in the black square in the middle, then clikc it then as fast as you can click the red square that pops up then, bring your cross hair back to the black square then click it then repeat. Your supposed to do it a flicky motion meaning bringing your crosshair to the red sqaure as fast as possible then bring it back as soon as possible.", 4, 119, 595, 589);
+        text("Put your cross hair on the black square which is at the center, then click, as soon as you do this a red square pops up then, click as fast as possible now bring your cross hair back to the black square then click it then repeat. Your supposed to do it a flicky motion meaning bringing your crosshair to the red sqaure as fast as possible then bring it back as soon as possible.", 4, 119, 595, 589);
         stroke(255, 0, 0);
         strokeWeight(4);
         line(655, 110, -117, 109);
@@ -894,6 +906,7 @@ draw = function() {
         cursor(CROSS);
     }
 };
+
 
         }
         if (typeof draw !== 'undefined') processing.draw = draw;
