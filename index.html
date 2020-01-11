@@ -40,11 +40,13 @@
 
         with (processing) {
 /*                                                           
-     _      _               _                      _          
-    / \    (_)  _ __ ___   | |__     __ _    ___  | | __  ___ 
-   / _ \   | | | '_ ` _ \  | '_ \   / _` |  / __| | |/ / / __|
-  / ___ \  | | | | | | | | | | | | | (_| | | (__  |   <  \__ \
- /_/   \_\ |_| |_| |_| |_| |_| |_|  \__,_|  \___| |_|\_\ |___/
+ ______                  __                       __                
+/\  _  \  __            /\ \                     /\ \               
+\ \ \L\ \/\_\    ___ ___\ \ \___      __      ___\ \ \/'\     ____  
+ \ \  __ \/\ \ /' __` __`\ \  _ `\  /'__`\   /'___\ \ , <    /',__\ 
+  \ \ \/\ \ \ \/\ \/\ \/\ \ \ \ \ \/\ \L\.\_/\ \__/\ \ \\`\ /\__, `\
+   \ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \__/.\_\ \____\\ \_\ \_\/\____/
+    \/_/\/_/\/_/\/_/\/_/\/_/\/_/\/_/\/__/\/_/\/____/ \/_/\/_/\/___/ 
 */
 
 /* Welcome to Aimhacks, press one of the buttons to either start playing the game or get to the instructions, and Thanks for playing (More info below) */
@@ -57,8 +59,7 @@
 
 /* If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.*/
 
-
-// Project Started August 22nd 2019 and ended on January 11th 2020
+// Project Started August 22nd 2019 and ended on January 16th 2020
 
 //Scene Variable
 var currentScene = 0;
@@ -73,14 +74,16 @@ var timer6 = 1;
 var timer7 = 1;
 var timer8 = 1;
 var timer9 = 1;
+
+//Final Screen Level Timers
 var flickshottotalTimer1 = 0;
+var totalNormal = (12 - timer1) + (11- timer2) + (10- timer3);
 
 
 //3D Text Variable
 var textX = 289;
 
 //Flickshot Level
-
 var flickshotC = 0;
 
 //Flickshot Level Timer Positions
@@ -91,8 +94,7 @@ var timer3x = 538;
 var timer4x = 538;
 var timer5x = 538;
 
-
-// Variables to make the sqaures dissapear (Easter Egg)
+// Variables to make the sqaures dissapear
 var x11 = 156;
 var x12 = 512;
 var x21 = 322;
@@ -191,7 +193,7 @@ var drawScene1 = function() {
     
     
     textSize(15);
-    fill(138, 117, 255);
+    fill(255, 255, 255);
     text ("Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Ahmed (@jrcmilkz191)", 300, 577);
 };
 
@@ -215,13 +217,13 @@ var drawScene2 = function() {
     rect(x22, 110, 30, 30);
     //Name of the level and border under the name
     textSize(59);
+    text(".", 513, 24);
     text("Level 1", 205, 53);
     stroke(222, 22, 22);
     strokeWeight(4);
     line(1, 67, 599, 69);
     //Timer and automation for the next level
     stroke(255, 0, 0);
-    //text("00:", 443,54);
     if (timer1 > 9.99) {
         text((timer1).toFixed(2), 513, 54);
     } else {
@@ -312,7 +314,8 @@ var drawScene4 = function() {
     stroke(222, 22, 22);
     strokeWeight(4);
     line(4, 67, 600, 69);
-    // Timer an automation for next level
+    // Timer and automation for next level
+    text(".", 513, 24);
     if (timer2 > 9.99) {
         text((timer2).toFixed(2), 513, 51);
     } else {
@@ -373,6 +376,7 @@ var drawScene5 = function() {
     stroke(242, 29, 29);
     strokeWeight(4);
     line(4, 67, 600, 69);
+    text(".", 523, 24);
     if (timer3 > 9.99) {
         text((timer3).toFixed(2), 523, 52);
     } else {
@@ -382,9 +386,11 @@ var drawScene5 = function() {
         timer3-=0.020;
     } else { 
         if (currentScene === 5 ) {
-            //currentScene = 6;
             textSize(58);
             text("You Won!", 300,300);
+            textSize(27);
+            totalNormal = (12 - timer1) + (11- timer2) + (10- timer3);
+            text("You took " + (totalNormal).toFixed(2) + " seconds to finish all 3 levels", 306, 363);
         }
     }
     if (timer3 < 0) { 
@@ -694,9 +700,9 @@ var drawScene10 = function() {
     text("5.",72,435);
     text("6.",73,503);
     textSize(29);
-    text("Musa,(4.53) sec",212,147);
-    text("Timothy,(4.60) sec",212,204);
-    text("Arjun,(4.78) sec",212,255);
+    text("Musa,(4.53) sec",197,147);
+    text("Timothy,(4.60) sec",210,214);
+    text("Arjun,(4.66) sec" ,200,282);
     textSize(17);
     text("If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.",2,510,602,506);
 
