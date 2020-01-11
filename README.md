@@ -1,10 +1,3 @@
- ______                  __                       __                
-/\  _  \  __            /\ \                     /\ \               
-\ \ \L\ \/\_\    ___ ___\ \ \___      __      ___\ \ \/'\     ____  
- \ \  __ \/\ \ /' __` __`\ \  _ `\  /'__`\   /'___\ \ , <    /',__\ 
-  \ \ \/\ \ \ \/\ \/\ \/\ \ \ \ \ \/\ \L\.\_/\ \__/\ \ \\`\ /\__, `\
-   \ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \__/.\_\ \____\\ \_\ \_\/\____/
-    \/_/\/_/\/_/\/_/\/_/\/_/\/_/\/_/\/__/\/_/\/____/ \/_/\/_/\/___/ 
 Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Amhed (@jrcmilkz191) Huge thanks to Timothy Mathew (@Timmy625). 
 Please do not change the code if you are only going to play as it will mess the game up and could lead to changes that would let you cheat.
 unless you are chaning the code to make the game better. If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones. Project Started August 22nd 2019 and ended on January 16th 2020 
