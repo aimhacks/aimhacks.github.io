@@ -39,27 +39,28 @@
         };
 
         with (processing) {
-/*                                                           
- ______                  __                       __                
-/\  _  \  __            /\ \                     /\ \               
-\ \ \L\ \/\_\    ___ ___\ \ \___      __      ___\ \ \/'\     ____  
- \ \  __ \/\ \ /' __` __`\ \  _ `\  /'__`\   /'___\ \ , <    /',__\ 
-  \ \ \/\ \ \ \/\ \/\ \/\ \ \ \ \ \/\ \L\.\_/\ \__/\ \ \\`\ /\__, `\
-   \ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \_\ \__/.\_\ \____\\ \_\ \_\/\____/
-    \/_/\/_/\/_/\/_/\/_/\/_/\/_/\/_/\/__/\/_/\/____/ \/_/\/_/\/___/ 
+/**                                                           
+ █████╗ ██╗███╗   ███╗██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗
+██╔══██╗██║████╗ ████║██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝
+███████║██║██╔████╔██║███████║███████║██║     █████╔╝ ███████╗
+██╔══██║██║██║╚██╔╝██║██╔══██║██╔══██║██║     ██╔═██╗ ╚════██║
+██║  ██║██║██║ ╚═╝ ██║██║  ██║██║  ██║╚██████╗██║  ██╗███████║
+╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
 */
 
-/* Welcome to Aimhacks, press one of the buttons to either start playing the game or get to the instructions, and Thanks for playing (More info below) */
+/** Welcome to Aimhacks, press one of the buttons to either start playing the game or get to the instructions, and Thanks for playing (More info below) */
 
-// Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Amhed (@jrcmilkz191)
+/** Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Amhed (@jrcmilkz191) */
 
-// Huge thanks to Timothy Mathew (@Timmy625) 
+/** Huge thanks to Timothy Mathew (@Timmy625) */
 
-/* Please do not change the code if you are only going to play as it will mess the game up and could lead to changes that would let you cheat. But if you are going to modify the game to make a different version of it feel free to do it */
+/** If the code is not working please try resarting first */
 
-/* If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.*/
+/** Please do not change the code if you are only going to play as it will mess the game up and could lead to changes that would let you cheat. But if you are going to modify the game to make a different version of it feel free to do it */
 
-// Project Started August 22nd 2019 and ended on January 16th 2020
+/** If you want to be on the leaderboard take a video of yourself beating all of the levels and then e-mail the video to jrcmilkz@gmail.com and we will review it and put you on the leaderboard. Please remember to check the leaderboard to see if your socre was actually better than any of the other ones.*/
+
+/** Project Started August 22nd 2019 and ended on January 16th 2020 */
 
 //Scene Variable
 var currentScene = 0;
@@ -177,7 +178,7 @@ var drawScene1 = function() {
         textAlign(CENTER);
         text("Aimhacks", textX -21, 152 - i);
         popMatrix();
-}
+    }
     textSize(20);
     text("Click to Start", 286, 298);
     noFill();
@@ -194,7 +195,7 @@ var drawScene1 = function() {
     
     textSize(15);
     fill(255, 255, 255);
-    text ("Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Ahmed (@jrcmilkz191)", 300, 577);
+    text ("Created by Arjun Korrakuti (@ArjunKorrakuti) and Musa Ahmed (@jrcmilkz191) \nHuge thanks to Timothy (@Timmy625) for all the help", 300, 569);
 };
 
 //Scene 2 (Level 1)
@@ -662,7 +663,7 @@ var drawScene9 = function() {
     }
         fill(255, 0, 0);
         textSize(32);
-        text("Put your cross hair on the black square which is at the center, then click, as soon as you do this a red square pops up then, click as fast as possible now bring your cross hair back to the black square then click it then repeat. Your supposed to do it a flicky motion meaning bringing your crosshair to the red sqaure as fast as possible then bring it back as soon as possible.", 4, 119, 595, 589);
+        text("Put your cross hair on the black square which is at the center and then click it. As soon as you do this, a red square pops up. Then click it as fast as possible. Now bring your crosshair back to the black square and click it. Now repeat. Your supposed to do it a flicky motion meaning bringing your crosshair to the red sqaure as fast as possible then bring it back as soon as possible.", 4, 119, 595, 589);
         stroke(255, 0, 0);
         strokeWeight(4);
         line(655, 110, -117, 109);
@@ -913,6 +914,7 @@ draw = function() {
         cursor(CROSS);
     }
 };
+
 
 
         }
